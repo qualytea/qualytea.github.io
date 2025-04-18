@@ -1,0 +1,83 @@
+/* Qualy‑Tea landing CSS — McDonald's inspired palette */
+:root {
+  --mcd-red: #d32d27;
+  --mcd-yellow: #ffc72c;
+  --dark: #222;
+  --light: #fff;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.5;
+  color: var(--dark);
+  background: var(--light);
+}
+/* ---------- HEADER NAVIGATION ---------- */
+header {
+  background: var(--mcd-red);
+}
+nav {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  gap: 1.2rem;
+}
+nav a {
+  color: var(--light);
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity .2s ease;
+}
+nav a:hover { opacity: .75; }
+/* ---------- HERO BANNER ---------- */
+.hero {
+  text-align: center;
+  padding: 4rem 1rem;
+  background: var(--mcd-yellow);
+}
+.hero h1 {
+  margin: .5rem 0 0;
+  font-size: 2.2rem;
+}
+.hero p { margin: .2rem 0 1.5rem; font-size: 1.1rem; }
+.btn {
+  display: inline-block;
+  padding: .75rem 1.6rem;
+  background: var(--mcd-red);
+  color: var(--light);
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background .2s ease;
+}
+.btn:hover { background: #b82520; }
+/* ---------- SECTIONS ---------- */
+section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+section h2 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+.skills-list,
+.team-list {
+  columns: 2 260px;
+  column-gap: 2rem;
+  list-style: disc inside;
+}
+/* Mobile single column */
+@media (max-width: 600px) {
+  .skills-list, .team-list { columns: 1; }
+  nav { flex-wrap: wrap; gap: .8rem; justify-content: center; }
+  .hero h1 { font-size: 1.8rem; }
+}
+/* ---------- FOOTER ---------- */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #f6f6f6;
+  font-size: .9rem;
+}
