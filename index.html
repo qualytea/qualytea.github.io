@@ -112,7 +112,9 @@
   </header>
 
   <section id="welcome" class="reveal">
-    <img src="https://media-hosting.imagekit.io/32c312fab33a4ea4/avatar.png?Expires=1839514565&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=zIGPHaani-R32Pvk0apbNHMh7In~-wtA-qyUds2D1myqo10HuAmbV2KjIwptqYaU~3B40j0C5Fa16u~8rleHlEz27HooT1rpLBa0happJ8Y5OG3aUktR7v0DhoxBz0KKnvRRoEjAsct8bZApTCIU1f8CSClHN4WhcRm8VNo6w~Iuai80lel5dEQapoTUBkeb4X-oCRo~IBnnCu9gtW1SqfumxclMvd1mZdcJeffjIXHRljThnBvZRUOTFsrTn1bF4keA3Xc2kyIKrXWRKr-hL0LbCy8CPOs2inIJg2bfkRz~KW8B1nvYDl~sFtLGYvnPgvZyicdV8DVmgWJTKyfAew__" alt="Avatar" class="avatar" onerror="this.remove()" />
+<img src="img/avatar.png" alt="Irina Kuznetsova" class="avatar" width="300" height="300" loading="eager">
+
+
     <h1>Привет! Я Ирина — QA Engineer</h1>
     <p>Более 3 лет тестирую web и backend. Сейчас отвечаю за качество<br>сервиса диагностической платформы <strong>SDI MatriX</strong>.</p>
   </section>
@@ -207,6 +209,7 @@
     <div class="tool">
       <h3>CI/CD & Linux</h3>
       <p>Основы работы с пайплайнами и командной строкой</p>
+</div>
   </div>
 </section>
 
@@ -236,17 +239,39 @@
       document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
       // Floating avatar bubble random
-      const bubble=document.createElement('div');
-      bubble.className='bubble';
-      bubble.innerHTML=`<img src="https://media-hosting.imagekit.io/32c312fab33a4ea4/avatar.png?Expires=1839514565&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=zIGPHaani-R32Pvk0apbNHMh7In~-wtA-qyUds2D1myqo10HuAmbV2KjIwptqYaU~3B40j0C5Fa16u~8rleHlEz27HooT1rpLBa0happJ8Y5OG3aUktR7v0DhoxBz0KKnvRRoEjAsct8bZApTCIU1f8CSClHN4WhcRm8VNo6w~Iuai80lel5dEQapoTUBkeb4X-oCRo~IBnnCu9gtW1SqfumxclMvd1mZdcJeffjIXHRljThnBvZRUOTFsrTn1bF4keA3Xc2kyIKrXWRKr-hL0LbCy8CPOs2inIJg2bfkRz~KW8B1nvYDl~sFtLGYvnPgvZyicdV8DVmgWJTKyfAew__" alt="avat" onerror="this.remove()"><p>Привет! Если заметил баг — напиши мне 😉</p>`;
-      const top=Math.floor(Math.random()*50)+20; // 20‑70vh
-      bubble.style.top=top+'vh';
-      document.body.appendChild(bubble);
-      setTimeout(()=>{bubble.style.opacity='1';},2800);
-      // Hide bubble after 8s or on scroll end
-      setTimeout(()=>{bubble.style.opacity='0';setTimeout(()=>bubble.remove(),600);},8000);
-    });
-  </script>
+const bubble = document.createElement('div');
+bubble.className = 'bubble';
+
+// аватар внутри поп-апа
+const imgEl = document.createElement('img');
+imgEl.src = 'img/avatar.png'; 
+imgEl.alt = 'Avatar';
+imgEl.className = 'bubble-avatar';
+
+// текст
+const pEl = document.createElement('p');
+pEl.textContent = 'Привет! Если заметил баг — напиши мне 🥰';
+
+bubble.appendChild(imgEl);
+bubble.appendChild(pEl);
+
+// позиция
+const top = Math.floor(Math.random() * 50) + 20; // 20–70vh
+bubble.style.top = top + 'vh';
+
+// вставка и показ
+document.body.appendChild(bubble);
+setTimeout(() => { bubble.style.opacity = '1'; }, 2800);
+
+// скрыть через 8 сек
+setTimeout(() => {
+    bubble.style.opacity = '0';
+    setTimeout(() => bubble.remove(), 600);
+}, 8000);
+
+});
+
+</script>
 </body>
 </html>
 
